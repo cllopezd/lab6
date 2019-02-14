@@ -28,3 +28,18 @@ function addProjectDetails(e) {
 
 	console.log("User clicked on project " + idNumber);
 }
+function addProjectDetails(e){
+	//Prevent the following link
+	e.preventDefault();
+
+	//Get the div ID 
+	var projectID = projectID.substr('project'.length);
+
+	console.log("User clicked on project" + idNumber);
+
+	$.get("http://localhose:3000/projectID", callBackFn);
+}
+
+dunction callBackFn(result){
+	console.log(result);
+}

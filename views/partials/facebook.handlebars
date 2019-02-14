@@ -1,19 +1,49 @@
-<!-- Replace all code under this line with your copied script -->
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : 'Insert your appId here',
+      appId      : '{1232923296861038}',
       cookie     : true,
       xfbml      : true,
-      version    : 'v2.8'
+      version    : '{v3.2}'
     });
+      
+    FB.AppEvents.logPageView();   
+      
   };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+   FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+
+
+{
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
 </script>
